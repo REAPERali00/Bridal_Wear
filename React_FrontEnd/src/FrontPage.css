@@ -1,0 +1,120 @@
+body{
+    background-color: var(--main-color);
+  }
+  
+  .root{
+    min-height: 100vh;
+  }
+  
+  
+  .FrontPage{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .logo {
+  width: 6rem;
+  height: 6rem;
+  }
+  
+  .nav-item {
+  color: var(--primary-color);
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  .product-container {
+    justify-content: center; /* center horizontally */
+    width: 100%;
+    margin: 0 auto;
+    padding: 2px;
+  }
+  
+  .product-image {
+    display: flex;
+    margin-right: 7px;
+    background-color: #ffffff;
+    max-width: 100%; 
+    max-height: 100%;
+  }
+
+
+  .product-title {
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .product-description {
+    margin-top: 0;
+    margin-bottom: 10px;
+    height: 100px;
+  }
+  
+  .product-grid {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    margin-bottom: 70px;;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 35px;
+    padding: 20px;
+  }
+  
+  .product-grid-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .product-grid-details {
+    background-color: #ffffff;
+    margin-right: 20px;
+    padding: 10px;
+    height: 150px;
+  }
+  
+  
+  footer {
+    background-color: #ffffff;
+    color: rgb(227, 158, 166);
+    padding: 20px;
+    text-align: center;
+  border-top: solid rgb(227, 158, 166) 0.2rem;
+  }
+  
+  h1 {
+    color: black;
+    padding:0;
+    margin:0;
+  }
+  
+  h3 {
+    color: black;
+    text-align: left;
+  }
+
+  .product-container {
+    max-width: 800px; /* Adjust the max width as needed */
+    margin: 0 auto;
+  }
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px; /* Adjust the gap between products as needed */
+  }
+  
+  .product-image {
+    border: 1px solid #ccc; /* Add borders around product images if desired */
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .product-title {
+    text-decoration: none;
+    color: #000;
+  }

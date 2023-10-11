@@ -1,0 +1,996 @@
+:root {
+  --primary-color: rgb(227, 158, 166);
+  --main-color: #ffffff;
+}
+
+h1 {
+  color: black;
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  color: black;
+  text-align: center;
+  padding-left: 1rem;
+}
+
+.count-input {
+  background-color: var(--main-color);
+  display: inline-block;
+  color: #063148;
+  border: none;
+  border-top: 2px solid #e5afb2;
+  border-bottom: 2px solid #e5afb2;
+  height: auto;
+  max-width: 7rem;
+  padding: 9px 1.4em;
+  font-family: inherit;
+  font-size: 1.3em;
+  line-height: 1.2em;
+  font-weight: 400;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 0px;
+  transition: opacity 200ms, background-color 150ms, border-color 150ms;
+}
+
+body {
+  background-color: var(--main-color);
+}
+
+.root {
+  min-height: 100vh;
+}
+
+.App {
+  text-align: center;
+  background-color: var(--main-color);
+  /* background-color: white; */
+  color: white;
+}
+
+.main {
+  color: black;
+  display: flex;
+  justify-content: center;
+  /* center horizontally */
+  min-height: 80vh;
+  margin: 0;
+  margin-top: 0rem;
+  font-family: inherit;
+  font-size: 1.3em;
+  line-height: 1.2em;
+  font-weight: 400;
+}
+
+.errormessage {
+  color: red;
+}
+
+.add-color-input {
+  height: 2rem;
+  width: 13rem;
+  font-size: 30pt;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 2rem;
+  border: 2px solid #e5afb2;
+}
+
+.footer {
+  color: black;
+  min-height: 2rem;
+  padding: 2rem;
+  border-top: solid var(--primary-color) 0.2rem;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.nav-item {
+  color: var(--primary-color);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: var(--main-color);
+  /* background-color: white; */
+  height: 10vh;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* Changed from center to space-between */
+  font-size: calc(10px + 2vmin);
+  color: white;
+  border-bottom: solid var(--primary-color) 0.2rem;
+}
+
+.cart-button {
+  background-color: transparent;
+  border: none;
+  border-radius: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Center the content horizontally */
+  margin-right: 50px;
+  /* Add some spacing between the icon and the text */
+}
+
+.cart-button:hover {
+  background-color: #e5afb2;
+  border: none;
+}
+
+.cart-icon {
+  /* Add any styles for the cart icon */
+  height: 30px;
+  width: 30px;
+  padding: 10px;
+  /* Add some spacing between the icon and the text */
+  padding-right: 15px;
+}
+
+.cart-button p {
+  /* Add any styles for the button text */
+  margin-left: 10px;
+  /* Add some spacing between the icon and the text */
+}
+
+/* To center both the icon and the text vertically */
+.cart-button p,
+.cart-icon {
+  display: flex;
+  align-items: center;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.product {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: solid var(--primary-color) 2px;
+  display: flex;
+  /* Set the container to a flex container */
+  justify-content: center;
+  /* Center all items horizontally */
+  align-items: center;
+  /* Center all items vertically */
+  z-index: 1 !important;
+}
+
+.app-image{
+  width: 40vw;
+  height: 40vw;
+  display: flex;
+  /* Set the container to a flex container */
+  justify-content: center;
+  /* Center all items horizontally */
+  align-items: center;
+  /* Center all items vertically */
+}
+
+.frontpage-container{
+  display: flex;
+  /* Set the container to a flex container */
+  justify-content: center;
+  /* Center all items horizontally */
+  align-items: center;
+  /* Center all items vertically */
+  padding-bottom: 3rem;
+}
+
+.frontpage-image {
+  width: 25vw;
+  height: 25vw;
+}
+
+.product-image1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100% !important;
+  width: 100% !important;
+  background-color: none !important;
+  border: none !important;
+  z-index: 0 !important;
+}
+
+.product-image2 {
+  position: absolute;
+  height: 100% !important;
+  width: 100% !important;
+  top: 0;
+  left: 0;
+  z-index: 2 !important;
+}
+
+.cart-card {
+  margin: 1rem;
+  padding: 1rem;
+  border-bottom: solid rgb(210, 210, 210) 0.1rem;
+  /* Updated styles to display flex and align items */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: white !important;
+}
+
+.inline {
+  /* Add any existing styles you have for .inline */
+  /* Use flex to arrange items in a row */
+  display: flex;
+  align-items: center;
+  /* Center the content horizontally */
+  justify-content: center;
+  /* Make sure the .inline container takes the remaining width */
+  flex: 1;
+}
+
+.cart-img {
+  margin-left: 3rem;
+}
+
+.product-name {
+  /* Center the product name */
+  text-align: center;
+}
+
+.column {
+  /* Add some margin between the image and the details */
+  margin-left: 10px;
+  /* Use flex to arrange items in a column */
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content {
+  /* Add any existing styles you have for .inline */
+  /* Use flex to arrange items in a row */
+  display: flex;
+  align-items: center;
+  /* Center the content horizontally */
+  justify-content: center;
+  /* Make sure the .inline container takes the remaining width */
+  flex: 1;
+}
+
+.details-row {
+  /* Use flex to arrange size, color, and quantity in a row */
+  display: flex;
+  align-items: center;
+  /* Add some spacing between the rows */
+}
+
+.notes-row {
+  display: flex;
+  align-items: center;
+  /* Add spacing between the rows */
+  word-wrap: break-word;
+  border: solid var(--primary-color) 2px;
+  background-color: #ffe6e6;
+}
+
+.remove-color {
+  /* Center the remove button */
+  width: 7rem;
+  height: 2rem;
+  background-color: rgb(255, 106, 106);
+  border: solid black 0.2rem;
+  border-radius: 5rem;
+  margin-left: auto;
+  /* Add padding to center the text within the button */
+  padding: 0.2rem;
+  /* Center the text within the button */
+  text-align: center;
+  line-height: 1;
+}
+
+.remove-color:hover {
+  width: 7rem;
+  color: black;
+  background: rgb(251, 230, 233);
+  cursor: pointer;
+  /* Change the text when hovering */
+  content: "Remove Item" !important;
+}
+
+.remove-cart {
+  /* Center the remove button */
+  width: 2rem;
+  height: 2rem;
+  background-color: rgb(255, 106, 106);
+  border: solid black 0.2rem;
+  border-radius: 5rem;
+  margin-left: auto;
+
+  /* Add transition properties for smooth effect */
+  transition: width 0.5s, background-color 0.5s, color 0.5s;
+  /* Add padding to center the text within the button */
+  padding: 0.2rem;
+  /* Center the text within the button */
+  text-align: center;
+  line-height: 1;
+}
+
+.remove-cart:hover {
+  width: 7rem;
+  color: black;
+  background: rgb(251, 230, 233);
+  cursor: pointer;
+  /* Change the text when hovering */
+  content: "Remove Item" !important;
+}
+
+.notes-cart {
+  width: 6rem;
+  height: 1.5rem;
+  background-color: rgb(106, 198, 255);
+  border: solid black 0.2rem;
+  color: black;
+  border-radius: 4rem !important;
+}
+
+.notes-cart:hover {
+  color: black;
+  background: rgb(230, 240, 251);
+  cursor: pointer;
+}
+
+.left-column {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Use flex-start to float items to the top */
+}
+
+.right-column {
+  top: 0 !important;
+  padding-bottom: 1rem;
+  margin-left: 4rem;
+  width: 50vw;
+}
+
+.checkout-right-column {
+  /* ... (other styles) */
+  padding-bottom: 1rem;
+  width: 60vw;
+  border-left: rgb(128, 128, 128) solid 0.1rem;
+  position: relative;
+  overflow-y: auto;
+  /* Enable vertical scrolling */
+  overflow-x: hidden;
+  max-height: calc(100vh - 5rem);
+}
+
+.checkout-cart-header {
+  padding: 0.5rem !important;
+  max-height: 2rem;
+  border-bottom: solid black 0.2rem;
+  background-color: #e5afb2;
+  width: 100%;
+  /* Make the header span the full width of the right column */
+  position: sticky;
+  /* Set the position to sticky to stay at the top of the right column */
+  top: 0;
+  /* Position the header at the top of the right column */
+  text-align: center;
+  z-index: 2;
+  /* Set a higher z-index value to ensure the header is above everything else */
+}
+
+.cart-view {
+  /* Add these styles to make the right column scrollable and fix its height */
+  max-height: calc(100vh - 5rem);
+  /* Set the max height to the current viewport height minus 5rem (adjust as needed) */
+  padding-bottom: 1rem;
+  width: 50vw;
+  position: relative;
+}
+
+.cart-img-container {
+  width: 4rem;
+  height: 4rem;
+  position: relative;
+  border: solid var(--primary-color) 2px;
+  z-index: 1 !important;
+}
+
+.cart-image1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100% !important;
+  width: 100% !important;
+  background-color: none !important;
+  border: none !important;
+  z-index: 0 !important;
+}
+
+.cart-image2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100% !important;
+  width: 100% !important;
+  z-index: 2 !important;
+}
+
+
+.color {
+  mix-blend-mode: multiply;
+  border: solid var(--primary-color) 2px;
+}
+
+.controls {
+  top: 0 !important;
+  padding: 1rem;
+  margin-left: 4rem;
+  width: 50vw;
+  min-height: 100vh;
+}
+
+.card {
+  color: white;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: rgb(38, 39, 45);
+  height: 10rem;
+  width: 20rem;
+  flex-wrap: nowrap;
+  border: solid 2px black;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.btn-primary {
+  margin-top: 2rem;
+  background-color: var(--main-color);
+  display: inline-block;
+  color: #063148;
+  border: 2px solid #e5afb2;
+  height: auto;
+  width: 50%;
+  padding: 9px 1.4em;
+  font-family: inherit;
+  font-size: 1.3em;
+  line-height: 1.2em;
+  font-weight: 400;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 0px;
+  transition: opacity 200ms, background-color 150ms, border-color 150ms;
+}
+
+.btn-primary:hover {
+  color: black;
+  background: rgb(251, 230, 233);
+  cursor: pointer;
+}
+
+.btn-secondary {
+  margin-top: 2rem;
+  background-color: var(--primary-color);
+  display: inline-block;
+  color: #063148;
+  border: 2px solid #e5afb2;
+  height: auto;
+  width: 50%;
+  padding: 9px 1.4em;
+  font-family: inherit;
+  font-size: 1.3em;
+  line-height: 1.2em;
+  font-weight: 400;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 0px;
+  transition: opacity 200ms, background-color 150ms, border-color 150ms;
+}
+
+.btn-secondary:hover {
+  color: black;
+  background: rgb(251, 230, 233);
+  cursor: pointer;
+}
+
+.btn-size {
+  padding: 0.5rem;
+  margin: 1rem;
+  min-width: 3.3rem !important;
+  min-height: 3.3rem !important;
+  border: solid var(--primary-color) 3px;
+  font-family: inherit;
+  font-size: 0.7em;
+  line-height: 1.2em;
+  font-weight: 400;
+  color: black;
+  background-color: var(--main-color);
+  border-radius: 4rem !important;
+}
+
+.btn-size:hover {
+  color: black;
+  background: rgb(251, 230, 233);
+  cursor: pointer;
+}
+
+.size-selected {
+  color: black;
+  background: rgb(251, 230, 233);
+  cursor: pointer;
+  border-color: black;
+}
+
+.product-name {
+  white-space: pre-wrap;
+  max-width: 15rem;
+}
+
+
+.cart-color {
+  padding: 0.5rem;
+  margin: 0.5rem;
+  min-width: 0.4rem !important;
+  min-height: 0.4rem !important;
+  border: solid black 0.1rem;
+  border-radius: 50% !important;
+}
+
+.btn-color {
+  padding: 1rem;
+  margin: 1rem;
+  min-width: 3rem !important;
+  min-height: 3rem !important;
+  border: solid var(--primary-color) 0.2rem;
+  border-radius: 4rem !important;
+}
+
+.btn-color:hover {
+  opacity: 60%;
+}
+
+.color-selected {
+  border: solid black 4px;
+  color: black
+}
+
+.addColor {
+  padding: 0 !important;
+  height: 3rem;
+  width: 3rem;
+  color: black;
+  font-family: inherit;
+  font-size: 1.3em;
+  line-height: 1.2em;
+  font-weight: 400;
+  border-radius: 4rem !important;
+}
+
+.btn-quantity {
+  background-color: var(--main-color);
+  display: inline-block;
+  color: #063148;
+  border: 2px solid #e5afb2;
+  height: auto;
+  min-width: 3.5rem;
+  padding: 9px;
+  font-family: inherit;
+  font-size: 1.3em;
+  line-height: 1.2em;
+  font-weight: 400;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 0px;
+  transition: opacity 200ms, background-color 150ms, border-color 150ms;
+}
+
+.btn-quantity:hover {
+  color: black;
+  background: rgb(251, 230, 233);
+  cursor: pointer;
+}
+
+.logo {
+  width: 6rem;
+  height: 6rem;
+  margin-left: 50px;
+}
+
+.color-form {
+  border: dashed #e5afb2 0.2rem;
+  border-radius: 2rem;
+  max-width: 25rem;
+  margin: auto;
+  padding: 1.5rem;
+  padding-bottom: 2rem;
+  padding-top: 0.5rem;
+}
+
+.cart-header {
+  padding: 0.5rem !important;
+  max-height: 2rem;
+  border-bottom: solid black 0.2rem;
+  background-color: #e5afb2;
+  width: 98.4%;
+  /* Make the header span the full width of the right column */
+  position: sticky;
+  /* Set the position to sticky to stay at the top of the right column */
+  top: 0;
+  /* Position the header at the top of the right column */
+  text-align: center;
+  z-index: 2;
+  /* Set a higher z-index value to ensure the header is above everything else */
+
+}
+
+.addToCart {
+  position: fixed;
+  bottom: 5px;
+  right: 0px;
+  height: 89vh;
+  width: 55%;
+  background-color: #fff !important; /* Add your desired background color here */
+  border: 1px solid #141414;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  transition: transform 1s ease-in-out;
+  transform: translateX(100%);
+  font-size: 1.1rem;
+}
+
+.cart-show {
+  transform: translateX(0%);
+}
+
+.cart-view {
+  /* Add the inherit value for the width property */
+  width: 100%;
+  background-color: white !important;
+}
+
+.addToCart h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  flex-grow: 1;
+}
+
+.cart-close-btn {
+  /* Remove default button styles */
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  /* Adjust margin to create space between ">" symbol and the header text */
+  margin-right: 10px;
+  /* Center the button vertically */
+  display: flex;
+  align-items: center;
+}
+
+.gt-angle {
+  /* Set the font size and line height to control the size of the symbol */
+  font-size: 2rem;
+}
+
+.cart-close-btn:hover .gt-angle {
+  /* Change the color of the symbol on hover */
+  color: #ff6868;
+  /* Change this to your desired hover color */
+}
+
+.display_image {
+  /* Add these styles to control initial position and size */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  /* Set the initial height to 100% */
+  width: 100%;
+  /* Set the initial width to 100% */
+  z-index: 4 !important;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.upload-file {
+  background-color: var(--main-color);
+  display: inline-block;
+  color: #063148;
+  border: 2px solid #e5afb2;
+  height: auto;
+  width: 20%;
+  padding: 9px 1.4em;
+  font-family: inherit;
+  font-size: 1.3em;
+  line-height: 1.2em;
+  font-weight: 400;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 0px;
+  transition: opacity 200ms, background-color 150ms, border-color 150ms;
+}
+
+.upload-file:hover {
+  color: black;
+  background: rgb(251, 230, 233);
+  cursor: pointer;
+}
+
+.comment-flexbox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.comment-text {
+  margin: 12px 0;
+  font-size: 16pt;
+  font-weight: 500;
+  color: black;
+}
+
+.input-box {
+  height: 75px;
+  width: 600px;
+  background-color: #f1ebeb;
+  font-size: 12pt;
+}
+
+.comment-button {
+  padding: 0 !important;
+  min-width: 4rem !important;
+  min-height: 2.5rem !important;
+  max-width: 10rem !important;
+  max-height: 3rem !important;
+  color: var(--primary-color);
+  background-color: var(--main-color);
+  border: solid var(--primary-color) 3px;
+  font-size: 12pt;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.comment-button:hover {
+  background-color: rgb(234, 223, 224);
+  border-color: var(--primary-color);
+  color: black;
+}
+
+.comment-container {
+  height: 75px;
+  width: 600px;
+  background-color: #f1ebeb;
+  border-radius: 5px;
+  margin: 10px 0;
+  word-break: break-all;
+}
+
+.comment-group {
+  border: solid gray 0.1rem;
+  height: 200px;
+  width: 600px;
+  overflow-y: scroll;
+  color: black;
+  text-align: left;
+  font-size: 12pt;
+}
+
+.comments {
+  margin: 12px 0;
+  font-size: 13pt;
+  font-weight: 500;
+  color: black;
+  text-align: left;
+}
+
+.checkouts {
+  width: 40vw;
+  margin: 0 auto;
+  padding: 2rem;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Center the items horizontally */
+  align-items: center;
+  /* Center the items vertically */
+}
+
+.checkout-header{
+  padding: 0;
+  margin: 0;
+  padding-bottom: 2rem;
+}
+
+.checkout-button {
+  position: sticky;
+  bottom: 0;
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px;
+  width: 95%;
+  /* Make the button span the width of the container */
+  left: 0;
+}
+
+.checkout-button:hover {
+  background-color: #0056b3;
+}
+
+#display_shirt {
+  width: 475px;
+  height: 511px;
+  border: 1px solid rgb(22, 22, 250);
+  background-image: url("./Assets/T.png");
+  background-repeat: no-repeat;
+  background-color: aquamarine;
+  position: relative;
+  overflow: hidden;
+  z-index: 30;
+}
+
+#display_image {
+  width: 200px;
+  height: 111px;
+  position: absolute;
+  top: 100px;
+  left: 140px;
+  border: 1px solid black;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: move;
+  resize: both;
+  overflow: auto;
+  z-index: 31;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.form-group select {
+  cursor: pointer;
+}
+
+.name-fields {
+  display: flex;
+  justify-content: space-between;
+}
+
+.address-fields {
+  display: flex; /* Display the city and province side by side */
+  justify-content: space-between; /* Add some spacing between them */
+}
+
+.input-group-item {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.delivery-method {
+  display: flex;
+}
+
+
+.checkout-button:hover {
+  background-color: #0056b3;
+}
+
+input:focus{
+  border: solid #e5afb2 0.13rem;
+}
+
+select:focus{
+  border: solid #e5afb2 0.13rem;
+}
+
+.checkout-info{
+  width: 100%;
+}
+
+.product-container {
+  max-width: 800px;
+  display: flex;
+  /* Set the container to a flex container */
+  justify-content: center;
+  /* Center all items horizontally */
+  align-items: center;
+  /* Center all items vertically */
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px; /* Adjust the gap between products as needed */
+}
+
+.product-image {
+  border: 1px solid #ccc; /* Add borders around product images if desired */
+  padding: 10px;
+  text-align: center;
+}
+
+.product-title {
+  text-decoration: none;
+  color: #000;
+}
+
+.front-container {
+  height: 50px;
+  width: 50px;
+}
+
+.notes {
+  height: 7rem;
+  width: 30rem;
+  font-size: 20pt;
+  border: solid #e5afb2 2px;
+}
+
+
+
+
