@@ -1,15 +1,11 @@
 const express = require("express");
 const fs = require("fs");
-const app = express();
-var data = require("./data.json");
-const MongoBackend = require("./DB/MongoBackend");
-const mongoBackend = new MongoBackend();
 
-app.use(express.text());
-app.use(express.json());
-async function run(item) {
-  return mongoBackend.run(item);
-}
+const router = express.Router();
+var data = require("../data.json");
+
+router.use(express.text());
+router.use(express.json());
 
 function removeItem(item) {
   const index = data.color.findIndex((element) => element === item);
@@ -19,6 +15,7 @@ function removeItem(item) {
     console.log("Color not found to remove ", item);
   }
 }
+
 function removeColor(color) {
   console.log("Removing Color...");
   removeItem(color);
@@ -33,33 +30,25 @@ function addColor(color) {
     console.log("write finished", err);
   });
 }
-// addColor("#BB3333");
-app.get("/color", (req, res) => {
+
+// addColor("BB3333");
+router.get("/", (req, res) => {
   console.log("Receiving Colors");
   res.json(data);
 });
 
-app.post("/color", (req, res) => {
+router.post("/", (req, res) => {
   const color = req.body;
   console.log("Posting Colors", color);
   addColor(color);
   res.send("Added Color Successfully");
 });
 
-app.post("/color/delete", (req, res) => {
+router.post("/delete", (req, res) => {
   const color = req.body;
   console.log("Deleting Colors", color);
   removeColor(color);
   res.send("Removed Color Successfully");
 });
 
-app.post("/cart", (req, res) => {
-  const cartItem = req.body;
-  console.log("Pushing new cart item to data base");
-  console.log(cartItem);
-  run(cartItem);
-  res.send("Added Item Successfully");
-});
-app.listen(5000, () => {
-  console.log("Listening on port 5000");
-});
+module.exports = router;
