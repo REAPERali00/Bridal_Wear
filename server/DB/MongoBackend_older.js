@@ -1,12 +1,11 @@
 const { MongoClient, Code } = require("mongodb");
-
+require("dotenv").config();
 const data = require("../data.json");
 
 class MongoBackend {
   constructor() {
-    this.mongoUrl = "mongodb://localhost:37017/cart";
-    // this.mongoUrl = "mongodb+srv://Cart:Alireza15@cart.mnaodxu.mongodb.net/?retryWrites=true&w=majority";
-    this.dbName = "cart";
+    this.mongoUrl = process.env.URL;
+    this.dbName = process.env.DB;
     this.client = null;
     this.collection = null;
   }
