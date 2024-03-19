@@ -1,28 +1,43 @@
+const MongoBackend = require("../DB/database");
 const fs = require("fs");
 var data = require("../data.json");
+const db = new MongoBackend();
 
-function removeItem(item) {
-  const index = data.color.findIndex((element) => element === item);
-  if (index !== -1) {
-    data.color.splice(index, 1);
-  } else {
-    console.log("Color not found to remove ", item);
+async function addColor(color) {
+  try {
+    await db.connect();
+    await db.insertRanking(color);
+    // const rankings = await db.getColors();
+    // console.log(rankings);
+  } catch (e) {
+    console.error("could not add the color the color: " + e);
+  } finally {
+    await db.disconnect();
   }
 }
 
-function removeColor(color) {
-  console.log("Removing Color...");
-  removeItem(color);
-  fs.writeFile("data.json", JSON.stringify(data), (err) => {
-    console.log("write finished", err);
-  });
+async function removeColor(color) {
+  try {
+    await db.connect();
+    await db.removeColor(color);
+    // const rankings = await db.getColors();
+    // console.log(rankings);
+  } catch (e) {
+    console.error("could not remove the color the color: " + e);
+  } finally {
+    await db.disconnect();
+  }
 }
-
-function addColor(color) {
-  data.color.push("#" + color);
-  fs.writeFile("data.json", JSON.stringify(data), (err) => {
-    console.log("write finished", err);
-  });
+async function getColors() {
+  let colors = [];
+  try {
+    await db.connect();
+    colors = await db.getColors();
+  } catch (e) {
+    console.error("could not receive the colors: " + e);
+  } finally {
+    await db.disconnect();
+  }
+  return colors;
 }
-
-module.exports = { removeItem, removeColor, addColor };
+module.exports = { getColors, removeColor, addColor };

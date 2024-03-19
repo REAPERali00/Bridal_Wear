@@ -6,22 +6,38 @@ router.use(express.text());
 router.use(express.json());
 
 const {
-  removeItem,
+  getColors,
   removeColor,
   addColor,
 } = require("../controllers/colorController");
 
 // addColor("BB3333");
-router.get("/", (req, res) => {
-  console.log("Receiving Colors");
-  res.json(data);
+router.get("/", async (req, res) => {
+  console.log("Receiving Colors...");
+  try {
+    const rankings = await getRankings();
+    res.json(rankings);
+  } catch (err) {
+    res.status(500).send("An error occurred while getting the rankings.");
+  }
 });
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   const color = req.body;
   console.log("Posting Colors", color);
   addColor(color);
   res.send("Added Color Successfully");
+
+  console.log("Posting Colors: ", color);
+  try {
+    const color = req.body;
+    await addOrUpdateRanking(newRank.name, newRank.time);
+    res.json({ message: "Ranking submitted successfully" });
+  } catch (err) {
+    res
+      .status(500)
+      .send("An error occurred while submitting the ranking." + err);
+  }
 });
 
 router.post("/delete", (req, res) => {

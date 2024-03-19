@@ -23,12 +23,20 @@ class MongoBackend {
     console.log("Disconnected from MongoDB");
   }
 
-  async insertRanking(color) {
+  async insertColor(color) {
     const result = await this.collection.insertOne({ color });
     console.log(`New ranking inserted with the id ${result.insertedId}`);
   }
 
-  async getRankings() {
+  async removeColor(color) {
+    const result = await this.collection.deleteOne({ color: color });
+    console.log(
+      result.deletedCount === 0
+        ? `${color} not found`
+        : `${color} removed successfully`
+    );
+  }
+  async getColors() {
     return await this.collection.find({}).toArray();
   }
 
