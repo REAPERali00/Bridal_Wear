@@ -35,24 +35,24 @@ function App() {
     setSelectedImageId(imageId);
   }, [location]);
 
-  const postCart = async (newItem) => {
-    try {
-      const response = await fetch("/cart", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newItem),
-      });
-      if (response.ok) {
-        console.log("Item posted Successfully");
-      } else {
-        console.log("Error in posting Item");
-      }
-    } catch (err) {
-      console.error("Error Posting Items: ", err);
-    }
-  };
+  // const postCart = async (newItem) => {
+  //   try {
+  //     const response = await fetch("/cart", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(newItem),
+  //     });
+  //     if (response.ok) {
+  //       console.log("Item posted Successfully");
+  //     } else {
+  //       console.log("Error in posting Item");
+  //     }
+  //   } catch (err) {
+  //     console.error("Error Posting Items: ", err);
+  //   }
+  // };
 
   function addToCart() {
     console.log(quantityValid);
@@ -113,7 +113,7 @@ function App() {
       storedCartItems.push(newCartItem);
 
       localStorage.setItem("cartItems", JSON.stringify(storedCartItems));
-      postCart(newCartItem);
+      // postCart(newCartItem);
       // Check if there are stored cart items in localStorage
       if (storedCartItems && Array.isArray(storedCartItems)) {
         // Loop through each stored cart item and add it to the cartItems array
@@ -147,7 +147,7 @@ function App() {
   }
 
   function addNote(note) {
-      setNote(note);
+    setNote(note);
   }
 
   const handleCartRefresh = () => {
@@ -248,10 +248,7 @@ function App() {
             setValid={setQuantityValid}
           />
           <p>Add Notes</p>
-          <CommentSection
-            addNote={addNote}
-            note={note}
-          />
+          <CommentSection addNote={addNote} note={note} />
           <Button
             className="btn-primary"
             onClick={() => {

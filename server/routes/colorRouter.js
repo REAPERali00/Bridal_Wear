@@ -22,9 +22,9 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  console.log("Posting Colors: ", color);
   try {
     const color = req.body;
+    console.log("Posting Colors: ", color);
     await addColor(color);
     res.json({ message: "Color submitted successfully" });
   } catch (err) {

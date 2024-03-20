@@ -4,7 +4,7 @@ const db = new MongoBackend(process.env.URL, process.env.DB, "colors");
 async function addColor(color) {
   try {
     await db.connect();
-    await db.insertRanking(color);
+    await db.addColor(color);
   } catch (e) {
     console.error("Could not add the color: " + e);
   } finally {

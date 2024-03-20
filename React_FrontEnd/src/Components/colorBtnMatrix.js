@@ -19,7 +19,7 @@ function ColorBtnMatrix({ addItemColor, selectedColor }) {
     try {
       const response = await fetch("/color");
       const data = await response.json();
-      const colorArray = data.color;
+      const colorArray = data.color.color;
       setColors(colorArray);
     } catch (err) {
       setColors(backupColor);
@@ -32,9 +32,9 @@ function ColorBtnMatrix({ addItemColor, selectedColor }) {
       const response = await fetch("/color", {
         method: "POST",
         headers: {
-          "Content-Type": "text/plain",
+          "Content-Type": "application/json",
         },
-        body: colorInput,
+        body: JSON.stringify({ color: colorInput }),
       });
       if (response.ok) {
         console.log("Color posted Successfully");
