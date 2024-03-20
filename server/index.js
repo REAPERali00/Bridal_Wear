@@ -7,8 +7,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const colorRouter = require("./routes/colorRouter");
-app.use("/color", colorRouter);
+// const colorRouter = require("./routes/colorRouter");
+// app.use("/color", colorRouter);
 
 // app.post("/cart", (req, res) => {
 //   const cartItem = req.body;

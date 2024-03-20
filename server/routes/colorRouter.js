@@ -15,10 +15,10 @@ const {
 router.get("/", async (req, res) => {
   console.log("Receiving Colors...");
   try {
-    const rankings = await getRankings();
-    res.json(rankings);
+    const colors = await getColors();
+    res.json(colors);
   } catch (err) {
-    res.status(500).send("An error occurred while getting the rankings.");
+    res.status(500).send("An error occurred while getting the Colors.");
   }
 });
 
@@ -31,16 +31,14 @@ router.post("/", async (req, res) => {
   console.log("Posting Colors: ", color);
   try {
     const color = req.body;
-    await addOrUpdateRanking(newRank.name, newRank.time);
-    res.json({ message: "Ranking submitted successfully" });
+    await addColor(color);
+    res.json({ message: "Color submitted successfully" });
   } catch (err) {
-    res
-      .status(500)
-      .send("An error occurred while submitting the ranking." + err);
+    res.status(500).send("An error occurred while submitting the color." + err);
   }
 });
 
-router.post("/delete", (req, res) => {
+router.post("/delete", async (req, res) => {
   const color = req.body;
   console.log("Deleting Colors", color);
   removeColor(color);
