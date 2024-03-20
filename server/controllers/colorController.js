@@ -1,16 +1,12 @@
 const MongoBackend = require("../DB/database");
-const fs = require("fs");
-var data = require("../data.json");
-const db = new MongoBackend();
+const db = new MongoBackend(process.env.URL, process.env.DB, "colors");
 
 async function addColor(color) {
   try {
     await db.connect();
     await db.insertRanking(color);
-    // const rankings = await db.getColors();
-    // console.log(rankings);
   } catch (e) {
-    console.error("could not add the color the color: " + e);
+    console.error("Could not add the color: " + e);
   } finally {
     await db.disconnect();
   }
@@ -20,24 +16,24 @@ async function removeColor(color) {
   try {
     await db.connect();
     await db.removeColor(color);
-    // const rankings = await db.getColors();
-    // console.log(rankings);
   } catch (e) {
-    console.error("could not remove the color the color: " + e);
+    console.error("Could not remove the color: " + e);
   } finally {
     await db.disconnect();
   }
 }
+
 async function getColors() {
   let colors = [];
   try {
     await db.connect();
     colors = await db.getColors();
   } catch (e) {
-    console.error("could not receive the colors: " + e);
+    console.error("Could not receive the colors: " + e);
   } finally {
     await db.disconnect();
   }
   return colors;
 }
+
 module.exports = { getColors, removeColor, addColor };

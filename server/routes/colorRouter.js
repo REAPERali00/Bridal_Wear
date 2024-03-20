@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-var data = require("../data.json");
 
 router.use(express.text());
 router.use(express.json());
@@ -23,11 +22,6 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const color = req.body;
-  console.log("Posting Colors", color);
-  addColor(color);
-  res.send("Added Color Successfully");
-
   console.log("Posting Colors: ", color);
   try {
     const color = req.body;
@@ -39,10 +33,14 @@ router.post("/", async (req, res) => {
 });
 
 router.post("/delete", async (req, res) => {
-  const color = req.body;
-  console.log("Deleting Colors", color);
-  removeColor(color);
-  res.send("Removed Color Successfully");
+  try {
+    const color = req.body;
+    console.log("Deleting Colors", color);
+    await removeColor(color);
+    res.send("Removed Color Successfully");
+  } catch (err) {
+    res.status(500).send("An error occurred while removing the color." + err);
+  }
 });
 
 module.exports = router;
