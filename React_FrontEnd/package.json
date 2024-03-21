@@ -1,7 +1,7 @@
 {
   "name": "nkin-prototype",
   "version": "0.1.0",
-  "proxy": "http://localhost:5000",
+  "proxy": "https://bridal-wear.vercel.app/",
   "private": true,
   "dependencies": {
     "@testing-library/user-event": "^13.5.0",
