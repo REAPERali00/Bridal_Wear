@@ -75,12 +75,10 @@ function ColorBtnMatrix({ addItemColor, selectedColor }) {
   };
 
   const addColor = () => {
-    if (
-      /^[0-9A-Fa-f]{6}$/.test(colorInput) &&
-      !colors.includes("#" + colorInput)
-    ) {
+    const newColor = "#" + colorInput;
+    if (/^[0-9A-Fa-f]{6}$/.test(colorInput) && !colors.includes(newColor)) {
       setCanShowMessage(false);
-      colors.push("#" + colorInput);
+      setColors((oldColors) => [...oldColors, newColor]);
       postColor();
       toggleAddColor();
       setColorInput("");
@@ -89,10 +87,11 @@ function ColorBtnMatrix({ addItemColor, selectedColor }) {
     }
   };
 
-  const removeColor = (indexToRemove) => {
+  const removeColor = (color, indexToRemove) => {
     const updatedColors = [...colors];
     updatedColors.splice(indexToRemove, 1);
     setColors(updatedColors);
+    removeColorServer(color, indexToRemove);
   };
 
   const toggleRemoveButtons = () => {
@@ -120,7 +119,7 @@ function ColorBtnMatrix({ addItemColor, selectedColor }) {
             {showRemoveButtons && (
               <button
                 className="remove-color"
-                onClick={() => removeColorServer(color, index)}
+                onClick={() => removeColor(color, index)}
               >
                 <strong style={{ fontSize: 15 }}>remove</strong>
               </button>

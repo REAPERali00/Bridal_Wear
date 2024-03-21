@@ -10,6 +10,7 @@ const {
   addColor,
   colorsData,
 } = require("../controllers/colorController");
+getColors();
 
 // addColor("BB3333");
 router.get("/", async (req, res) => {
