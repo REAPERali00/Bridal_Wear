@@ -19,7 +19,7 @@ function ColorBtnMatrix({ addItemColor, selectedColor }) {
     try {
       const response = await fetch("/color");
       const data = await response.json();
-      const colorArray = data.color.color;
+      const colorArray = data;
       setColors(colorArray);
     } catch (err) {
       setColors(backupColor);
@@ -55,9 +55,9 @@ function ColorBtnMatrix({ addItemColor, selectedColor }) {
       const response = await fetch("/color/delete", {
         method: "POST",
         headers: {
-          "Content-Type": "text/plain",
+          "Content-Type": "application/json",
         },
-        body: color,
+        body: JSON.stringify({ color: color }),
       });
       if (response.ok) {
         removeColor(indexToRemove);

@@ -1,13 +1,14 @@
 const express = require("express");
 const router = express.Router();
 
-router.use(express.text());
+// router.use(express.text());
 router.use(express.json());
 
 const {
   getColors,
   removeColor,
   addColor,
+  colorsData,
 } = require("../controllers/colorController");
 
 // addColor("BB3333");
@@ -23,7 +24,8 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    const color = req.body;
+    console.log(req.body);
+    const color = req.body.color;
     console.log("Posting Colors: ", color);
     await addColor(color);
     res.json({ message: "Color submitted successfully" });
@@ -34,7 +36,8 @@ router.post("/", async (req, res) => {
 
 router.post("/delete", async (req, res) => {
   try {
-    const color = req.body;
+    let color = req.body.color;
+    // color = "#" + color;
     console.log("Deleting Colors", color);
     await removeColor(color);
     res.send("Removed Color Successfully");

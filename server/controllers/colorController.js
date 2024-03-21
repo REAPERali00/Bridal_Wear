@@ -1,8 +1,12 @@
 const MongoBackend = require("../DB/database");
 const db = new MongoBackend(process.env.URL, process.env.DB, "colors");
 
+let colorsData = [];
+
 async function addColor(color) {
   try {
+    color = "#" + color;
+    colorsData.push(color);
     await db.connect();
     await db.addColor(color);
   } catch (e) {
@@ -12,10 +16,20 @@ async function addColor(color) {
   }
 }
 
+function removeArrayColor(item) {
+  const index = colorsData.findIndex((element) => element === item);
+  if (index !== -1) {
+    colorsData.splice(index, 1);
+  } else {
+    console.log("Array Color not found to remove ", item);
+  }
+}
+
 async function removeColor(color) {
   try {
     await db.connect();
     await db.removeColor(color);
+    removeArrayColor(color);
   } catch (e) {
     console.error("Could not remove the color: " + e);
   } finally {
@@ -26,14 +40,18 @@ async function removeColor(color) {
 async function getColors() {
   let colors = [];
   try {
-    await db.connect();
-    colors = await db.getColors();
+    if (colorsData.length === 0) {
+      await db.connect();
+      colors = await db.getColors();
+      colorsData = colors.map((doc) => doc.color);
+      console.log(colorsData);
+    }
   } catch (e) {
     console.error("Could not receive the colors: " + e);
   } finally {
     await db.disconnect();
   }
-  return colors;
+  return colorsData;
 }
 
-module.exports = { getColors, removeColor, addColor };
+module.exports = { getColors, removeColor, addColor, colorsData };
