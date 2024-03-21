@@ -17,7 +17,9 @@ function ColorBtnMatrix({ addItemColor, selectedColor }) {
 
   const fetchColors = async () => {
     try {
-      const response = await fetch("/color");
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/color`
+      );
       const data = await response.json();
       const colorArray = data;
       setColors(colorArray);
@@ -29,13 +31,16 @@ function ColorBtnMatrix({ addItemColor, selectedColor }) {
 
   const postColor = async () => {
     try {
-      const response = await fetch("/color", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ color: colorInput }),
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/color`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ color: colorInput }),
+        }
+      );
       if (response.ok) {
         console.log("Color posted Successfully");
       } else {
@@ -52,13 +57,16 @@ function ColorBtnMatrix({ addItemColor, selectedColor }) {
       return;
     }
     try {
-      const response = await fetch("/color/delete", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ color: color }),
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/delete/color`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ color: color }),
+        }
+      );
       if (response.ok) {
         removeColor(indexToRemove);
         console.log("Color removed Successfully");
