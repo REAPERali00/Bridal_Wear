@@ -14,14 +14,6 @@ app.use(
 const colorRouter = require("./routes/colorRouter");
 app.use("/color", colorRouter);
 
-// app.post("/cart", (req, res) => {
-//   const cartItem = req.body;
-//   console.log("Pushing new cart item to data base");
-//   console.log(cartItem);
-//   run(cartItem);
-//   res.send("Added Item Successfully");
-// });
-
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
