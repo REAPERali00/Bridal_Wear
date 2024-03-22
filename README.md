@@ -34,40 +34,59 @@ Create a `.env` file in the root directory of both the frontend and backend proj
 ### Backend Setup
 
 1. Clone the repository and navigate to the backend directory:
+
    ```sh
+
    git clone https://your-repository-url.git
+
    cd your-repository-backend-directory
-2. Install Dependancies: 
+
+2. Install Dependancies:
+
    ```sh
+
    npm install
-3. Start the server: 
+
+3. Start the server:
+
    ```sh
    npm run dev
 
 ### Frontend Setup
 
 1. Navigate to the frontend directory:
+
    ```sh
+
    cd ./React_FrontEnd
-2. Install Dependancies: 
+
+2. Install Dependancies:
+
    ```sh
+
+
    npm install
-3. Start the server: 
+
+3. Start the server:
+
    ```sh
    npm start
-The app will launch in your default browser at http://localhost:3000.
 
-
+The app will launch in your default browser at <http://localhost:3000>.
 
 ## Contributing
-We welcome contributions to the Clothing Customization Web App! 
+
+We welcome contributions to the Clothing Customization Web App!
 
 ## License
+
 This project is licensed under the MIT License - see the [LICENSE]("#") file for details.
 
 ## Acknowledgments
+
 React and Node.js communities for invaluable resources and support.
 Unsplash and Pixels for providing high-quality images used in the demo.
 
 ## Support
+
 For support, please open an issue in the GitHub issue tracker.
