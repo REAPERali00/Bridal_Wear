@@ -1,3 +1,5 @@
+![Logo](./assets/NKIN.png)
+
 # Clothing Customization Web App
 
 Welcome to Bridal Wear! This product platform enables users to personalize their clothing items digitally before making a purchase. Built with React for a seamless frontend experience and Node.js for robust backend functionality, our app offers a user-friendly interface for customizing various clothing products.
@@ -10,12 +12,12 @@ Check out our live demo [here](https://bridal-wear-frontend-react.vercel.app/) t
 
 ## Team Members
 
-- Anthony Le’Count: Logo customization and image uploads
-- Alireza Jadidi: Dynamic cloth color changes, React Api calls, Node js server and Mongo DB database  
-- Camille Bouchard: Landing page and Item addition
-- Haroun Benmeddour: UI design, front end components, css animations and cart component
-- Jeel Patel: checkout and email functionality
-- Phung An Vuong: Jest and cypress tests
+- [**Anthony Le’Count**](): Logo customization and image uploads
+- [**Alireza Jadidi**](https://github.com/REAPERali00): Dynamic cloth color changes, React Api calls, Node js server and Mongo DB database  
+- [**Camille Bouchard**](https://github.com/cambouchard): Landing page and Item addition
+- [**Haroun Benmeddour**](https://github.com/Harounben): UI design, front end components, css animations and cart component
+- [**Jeel Patel**](): checkout and email functionality
+- [**Phung An**](https://github.com/AnPhungVuong) Vuong: Jest and cypress tests
 
 ## Features
 
