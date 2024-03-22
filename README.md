@@ -12,11 +12,11 @@ Check out our live demo [here](https://bridal-wear-frontend-react.vercel.app/) t
 
 ## Team Members
 
-- [**Anthony Le’Count**](): Logo customization and image uploads
+- [**Anthony Le’Count**](https://www.linkedin.com/in/anthony-le’count-a80a79210/): Logo customization and image uploads
 - [**Alireza Jadidi**](https://github.com/REAPERali00): Dynamic cloth color changes, React Api calls, Node js server and Mongo DB database  
 - [**Camille Bouchard**](https://github.com/cambouchard): Landing page and Item addition
 - [**Haroun Benmeddour**](https://github.com/Harounben): UI design, front end components, css animations and cart component
-- [**Jeel Patel**](): checkout and email functionality
+- [**Jeel Patel**](https://www.linkedin.com/in/jeel-patel-jp19122001/): checkout and email functionality
 - [**Phung An**](https://github.com/AnPhungVuong) Vuong: Jest and cypress tests
 
 ## Features
