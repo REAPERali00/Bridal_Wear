@@ -4,7 +4,7 @@ Welcome to the Clothing Customization Web App! This innovative platform enables 
 
 ## Demo
 
-Check out our live demo [here]("https://bridal-wear-frontend-react.vercel.app/") to see the Clothing Customization Web App in action. Explore the different customization options and visualize your perfect clothing item in real-time.
+Check out our live demo [here](https://bridal-wear-frontend-react.vercel.app/) to see the Clothing Customization Web App in action. Explore the different customization options and visualize your perfect clothing item in real-time.
 
 ## Features
 

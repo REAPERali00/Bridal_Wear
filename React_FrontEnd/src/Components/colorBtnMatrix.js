@@ -65,7 +65,7 @@ function ColorBtnMatrix({ addItemColor, selectedColor }) {
     }
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/delete/color`,
+        `${process.env.REACT_APP_BACKEND_URL}/color/delete`,
         {
           method: "POST",
           headers: {
