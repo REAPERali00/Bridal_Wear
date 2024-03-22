@@ -8,8 +8,8 @@ const corsOptions = {
   credentials: true,
   origin: [
     "http://localhost:3000",
-    "https://bridal-wear-frontend-react.vercel.app/",
-  ], // Whitelist the domains you want to allow
+    "https://bridal-wear-frontend-react.vercel.app",
+  ],
 };
 app.use(cors(corsOptions));
 
