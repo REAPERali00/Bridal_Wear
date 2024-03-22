@@ -18,7 +18,14 @@ function ColorBtnMatrix({ addItemColor, selectedColor }) {
   const fetchColors = async () => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/color`
+        `${process.env.REACT_APP_BACKEND_URL}/color`,
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+            "Access-Control-Allow-Headers": "Content-Type",
+          },
+        }
       );
       const data = await response.json();
       const colorArray = data;
