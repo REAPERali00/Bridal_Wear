@@ -1,3 +1,4 @@
+require("dotenv").config();
 const MongoBackend = require("../DB/database");
 const db = new MongoBackend(process.env.URL, process.env.DB, "colors");
 
