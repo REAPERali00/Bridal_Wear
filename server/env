@@ -1,0 +1,3 @@
+URL=mongodb://mongo:27017/mydatabase
+DB=mydatabase
+PORT=8000

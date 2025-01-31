@@ -1,0 +1,36 @@
+services:
+  frontend:
+    build: ./React_FrontEnd/
+    env_file: ./React_FrontEnd/.env
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./React_FrontEnd:/app
+      - /app/node_modules
+    command: npm start
+    environment:
+      - VITE_API_URL=http://localhost:3000 # Ensure API URL is set for React
+
+  backend:
+    build: ./server/
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo
+    env_file:
+      - ./server/.env
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    command: npm start
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
